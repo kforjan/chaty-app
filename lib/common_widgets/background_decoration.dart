@@ -7,20 +7,25 @@ class BackgroundDecoration extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      children: <Widget>[
-        Align(
-          alignment: Alignment.topCenter,
-          child: TopCurvedDecoration(),
+    return SingleChildScrollView(
+      child: Container(
+        height: MediaQuery.of(context).size.height,
+        child: Stack(
+          children: <Widget>[
+            Align(
+              alignment: Alignment.topCenter,
+              child: TopCurvedDecoration(),
+            ),
+            Align(
+              alignment: Alignment.bottomCenter,
+              child: BottomCurvedDecoration(),
+            ),
+            Container(
+              child: child,
+            )
+          ],
         ),
-        Align(
-          alignment: Alignment.bottomCenter,
-          child: BottomCurvedDecoration(),
-        ),
-        Container(
-          child: child,
-        )
-      ],
+      ),
     );
   }
 }

@@ -1,8 +1,8 @@
-import 'package:chaty_app/services/auth.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import 'app/landing_page/landing_page.dart';
+import 'services/auth.dart';
 
 class ChatyApp extends StatelessWidget {
   @override

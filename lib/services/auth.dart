@@ -20,7 +20,9 @@ class Auth implements AuthBase {
     if (user == null) {
       return null;
     }
-    return User(userId: user.uid);
+    return User(
+      userId: user.uid,
+    );
   }
 
   @override
@@ -31,7 +33,9 @@ class Auth implements AuthBase {
   @override
   Future<User> signIn(String email, String password) async {
     final _authResult = await _firebaseAuth.signInWithEmailAndPassword(
-        email: email, password: password);
+      email: email,
+      password: password,
+    );
     return _userFromFirebase(_authResult.user);
   }
 

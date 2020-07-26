@@ -1,14 +1,14 @@
-import 'package:chaty_app/app/home_page/home_page.dart';
-import 'package:chaty_app/app/sign_in/sign_in_page.dart';
-import 'package:chaty_app/services/auth.dart';
-
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+
+import '../../services/auth.dart';
+import '../home_page/home_page.dart';
+import '../sign_in/sign_in_page.dart';
 
 class LandingPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final _auth = Provider.of<AuthBase>(context);
+    final _auth = Provider.of<AuthBase>(context, listen: false);
     return StreamBuilder(
       stream: _auth.onAuthChanged,
       builder: (context, snapshot) {
@@ -19,8 +19,10 @@ class LandingPage extends StatelessWidget {
           }
           return HomePage();
         } else {
-          return Center(
-            child: CircularProgressIndicator(),
+          return Scaffold(
+            body: Center(
+              child: CircularProgressIndicator(),
+            ),
           );
         }
       },

@@ -1,15 +1,19 @@
-import 'package:chaty_app/common_widgets/background_decoration.dart';
 import 'package:flutter/material.dart';
 
-class SignInPage extends StatelessWidget {
-  const SignInPage({Key key}) : super(key: key);
+import '../../common_widgets/background_decoration.dart';
+import 'sign_in_form.dart';
 
+class SignInPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: BackgroundDecoration(
         child: Center(
-          child: Text('bok'),
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 60),
+            child: SignInForm.create(context),
+          ),
         ),
       ),
     );
