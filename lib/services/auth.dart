@@ -9,6 +9,7 @@ class User {
 
 abstract class AuthBase {
   Stream<User> get onAuthChanged;
+  Future<User> register(String email, String password);
   Future<User> signIn(String email, String password);
   Future<void> signOut();
 }
@@ -32,11 +33,28 @@ class Auth implements AuthBase {
 
   @override
   Future<User> signIn(String email, String password) async {
-    final _authResult = await _firebaseAuth.signInWithEmailAndPassword(
-      email: email,
-      password: password,
-    );
-    return _userFromFirebase(_authResult.user);
+    try {
+      final _authResult = await _firebaseAuth.signInWithEmailAndPassword(
+        email: email,
+        password: password,
+      );
+      return _userFromFirebase(_authResult.user);
+    } catch (error) {
+      rethrow;
+    }
+  }
+
+  @override
+  Future<User> register(String email, String password) async {
+    try {
+      final _authResult = await _firebaseAuth.createUserWithEmailAndPassword(
+        email: email,
+        password: password,
+      );
+      return _userFromFirebase(_authResult.user);
+    } catch (error) {
+      rethrow;
+    }
   }
 
   @override
