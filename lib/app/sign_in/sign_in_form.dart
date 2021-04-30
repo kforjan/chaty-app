@@ -66,7 +66,7 @@ class _SignInFormState extends State<SignInForm> {
               title: Text('Something went wrong!'),
               content: Text(error.message),
               actions: <Widget>[
-                FlatButton(
+                ElevatedButton(
                   onPressed: () {
                     Navigator.pop(context);
                   },
@@ -84,7 +84,7 @@ class _SignInFormState extends State<SignInForm> {
         Strings.chaty,
         style: TextStyle(
             fontSize: 40,
-            fontFamily: 'Lora',
+            fontFamily: 'Lobster',
             fontWeight: FontWeight.bold,
             fontStyle: FontStyle.italic,
             color: Colors.blue),
@@ -94,12 +94,12 @@ class _SignInFormState extends State<SignInForm> {
       _buildPasswordTextField(),
       !model.isSignIn ? _buildConfirmPasswordTextField() : Container(),
       SizedBox(height: 40),
-      RaisedButton(
+      ElevatedButton(
         child: Text(model.mainButtonText),
         onPressed: model.isLoading ? null : _submit,
       ),
       SizedBox(height: 10),
-      FlatButton(
+      ElevatedButton(
         child: Text(model.toggleButtonText),
         onPressed: model.isLoading ? null : _toggleFormType,
       ),
