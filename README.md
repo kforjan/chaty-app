@@ -8,8 +8,8 @@ This application uses Firebase authentication as a service for authenticating an
 
 ## Used packages
 
-* [firebase_auth](https://pub.dev/packages/firebase_auth)
-* [provider](https://pub.dev/packages/provider)
+* [provider](https://pub.dev/packages/provider) &nbsp; - &nbsp; state management
+* [firebase_auth](https://pub.dev/packages/firebase_auth) &nbsp; - &nbsp; working with Firebase Authentication API
 
 ## Setup
 
